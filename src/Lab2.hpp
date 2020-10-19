@@ -9,36 +9,35 @@
 #include <sys/stat.h>
 #include <cstdlib>
 #include <fstream>
-#include <sys/types.h> // for opendir(), readdir(), closedir()
-#include <sys/stat.h> // for stat()
+#include <sys/types.h>
+#include <sys/stat.h>
 
 using namespace std;
 
-// Help function
+// Основа
 void showMenu();
 void printArguments();
 void printReadme();
 void CreateFile();
-void Help();
 
-// Copy file
+// Копирование файла
 void copyFile(string path, string fileName);
 
-// Move file
+// Перемещение файла
 void moveFile(string path, string fileName);
 
-// Delete file
+// Удаление файлов
 void deleteFile(string fileName);
 void DeleteFile(string path, string fileName);
 
-// All process
+// Процессы
 int IsNumeric(const char* ccharptr_CharacterList);
 int displayProc();
 
-// Display all files
+// Показать все файлы
 void displayAllFiles(const char *dirName);
 
-// Size file or dir
+// Размер файла и директории
 int getFileSize(const char *fileName);
 int getDirSize(const char *dirName);
 

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// Copy file
+// Копирование файла
 void copyFile(string path, string fileName) {
     int pos;
     string newFileName;
@@ -14,7 +14,7 @@ void copyFile(string path, string fileName) {
     if (pos != -1) {
         newFileName = fileName.substr(pos + 1);
         path = path + "/" + newFileName;
-    } else 
+    } else
         path = path + "/" + fileName;
 
     ifstream file (fileName, ios_base::in | ios_base::binary);
@@ -24,20 +24,18 @@ void copyFile(string path, string fileName) {
         newFile << file.rdbuf();
     else
         cout << "Файл не найден" << endl;
-    
+
     file.close();
     newFile.close();
 }
-// Copy file
 
-// Move file
+// Перемещение файла
 void moveFile(string path, string fileName) {
     copyFile(path, fileName);
     deleteFile(fileName);
 }
-// Move file
 
-// Delete file
+// Удаление файла
 void deleteFile(string fileName)
 {
     const char *str = fileName.c_str();
@@ -47,15 +45,12 @@ void deleteFile(string fileName)
 
 void DeleteFile(string path, string fileName) {
     path = path + "/" + fileName;
-    const char *str = path.c_str();//fileName.c_str();
-    //path = path + "/" + src;
+    const char *str = path.c_str();
     if (remove(str) != 0)
         cout << "Не удалось удалить файл" << endl;
 }
-// Delete file
 
-
-// All process
+// Процессы
 int IsNumeric(const char* ccharptr_CharacterList)
 {
     for ( ; *ccharptr_CharacterList; ccharptr_CharacterList++)
@@ -93,10 +88,8 @@ int displayProc()
     }
     closedir(dir_proc);
 }
-// All process
 
-
-// Display all files
+// Показать файлы
 void displayAllFiles(const char *dirName)
 {
     DIR *dir;
@@ -123,11 +116,9 @@ void displayAllFiles(const char *dirName)
             cout << "Файл: "<< pdir->d_name << endl;	
     }
 }
-// Display all files
 
-
-// Size dir or file
-int getFileSize(const char * fileName) //вывод размера файла в текущей директории
+// Размер файла или директории
+int getFileSize(const char * fileName)
 {
     struct stat file_stat;
     stat(fileName, &file_stat);
